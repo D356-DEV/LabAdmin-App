@@ -1,28 +1,32 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import Logo from "@/components/Logo";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-    <View>
-      <Link href={'/about'} style={{textDecorationLine: 'underline', color: 'blue'}}>About</Link>
+    <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <Logo />
       <View style={styles.formContainer}>
         <TextInput
           style={styles.inputForm}
-          placeholder="Identifier"
+          placeholder="Codigo"
           placeholderTextColor="#fff"
+          keyboardType="number-pad"
         />
         <TextInput
           style={styles.inputForm}
-          placeholder="Password"
+          placeholder="Contraseña"
           placeholderTextColor="#fff"
           secureTextEntry
         />
-        <Button title="Log In" color="orange" />
+        <Button title="Ingresar" color="orange" onPress={() => {
+          router.push("/(tabs)");
+        }} />
+        <Link href={'/about'} style={styles.link}>¿Que es LabAdmin?</Link>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -41,4 +45,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
   },
+  link: {
+    color: 'orange',
+    textDecorationLine: 'underline',
+    fontSize: 16,
+  }
 });
