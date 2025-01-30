@@ -1,52 +1,32 @@
-import { StyleSheet, Text, View, Image, TextInput, Button} from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import React from "react";
+import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import { Link } from "expo-router";
+import Logo from "@/components/Logo";
 
 export default function Index() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.safeArea}>
-
-        <View style={styles.logoContainer}>
-          <Image source={require('@/assets/images/icon.png')} style={styles.logo} />
-          <Text style={styles.title}>LabAdmin</Text>
-        </View>
-
-        <View style={styles.formContainer}>
-          <TextInput style={styles.inputForm} placeholder="Identifier" placeholderTextColor="#fff"/>
-          <TextInput style={styles.inputForm} placeholder="Password" placeholderTextColor="#fff" secureTextEntry />
-          <Button
-            title="Log In"
-            color="orange"
-          />
-        </View>
-
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <View>
+      <Link href={'/about'} style={{textDecorationLine: 'underline', color: 'blue'}}>About</Link>
+      <Logo />
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.inputForm}
+          placeholder="Identifier"
+          placeholderTextColor="#fff"
+        />
+        <TextInput
+          style={styles.inputForm}
+          placeholder="Password"
+          placeholderTextColor="#fff"
+          secureTextEntry
+        />
+        <Button title="Log In" color="orange" />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    padding: 15,
-    backgroundColor: "#f5f5f5",
-    justifyContent: 'center'
-  },
-  logoContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  logo: {
-    width: 150,
-    height: 150,
-    resizeMode: "contain",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#333",
-  },
   formContainer: {
     justifyContent: "center",
     alignItems: "center",
