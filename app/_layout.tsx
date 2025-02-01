@@ -6,7 +6,10 @@ export default function Layout() {
     <Stack>
       <Stack.Screen name="index" options={{ title: "LabAdmin" }} />
       <Stack.Screen name="about" options={{ title: "Informacion" }} />
-      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+      <Stack.Screen name="Register" options={{ title: "Registro" }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="bot" options={{ title: "Chat Bot" }} />
+      <Stack.Screen name="schedule" options={{ title: "Horarios" }} />
     </Stack>
   );
 }
