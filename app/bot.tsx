@@ -11,14 +11,35 @@ export default function bot() {
       setConversation([...conversation, userMessage]);
 
       // Simulación de respuesta del bot
-      let botResponse = "";
-      if (message.toLowerCase().includes("encargado")) {
-        botResponse = "El encargado actual es el Profesor Juan Pérez.";
-      } else if (message.toLowerCase().includes("horario")) {
-        botResponse = "El horario de los laboratorios es de 8:00 AM a 8:00 PM.";
-      } else {
-        botResponse = "Lo siento, no entiendo tu pregunta.";
-      }
+let botResponse = "";
+
+// Convertir el mensaje a minúsculas para hacer las comparaciones insensibles a mayúsculas/minúsculas
+const lowerCaseMessage = message.toLowerCase();
+
+// Usar un switch para manejar las condiciones principales
+switch (true) {
+  case lowerCaseMessage.includes("encargado"):
+    botResponse = "El encargado actual es el Profesor Juan";
+    break;
+
+  case lowerCaseMessage.includes("horario"):
+    botResponse = "El horario de los laboratorios es de 8:00 AM a 8:00 PM.";
+    break;
+
+  case lowerCaseMessage.includes("diego"):
+    botResponse = "8:00am a 14:00pm";
+    break;
+
+  case lowerCaseMessage.includes("20:00"):
+    botResponse = "Ulises";
+    break;
+
+  default:
+    botResponse = "Lo siento, no entiendo tu pregunta.";
+    break;
+}
+
+
 
       const botMessage = { id: conversation.length + 2, text: botResponse, user: false };
       setConversation([...conversation, userMessage, botMessage]);

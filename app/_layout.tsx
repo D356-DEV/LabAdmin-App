@@ -10,6 +10,8 @@ export default function Layout() {
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="bot" options={{ title: "Chat Bot" }} />
       <Stack.Screen name="schedule" options={{ title: "Horarios" }} />
+      <Stack.Screen name ="horario" options={{title:"Schedule"}}/>
+      <Stack.Screen name = "resources" options = {{title:"recuros"}}/>
     </Stack>
   );
 }
